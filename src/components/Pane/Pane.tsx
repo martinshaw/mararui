@@ -11,7 +11,7 @@ Description: description
 
 import React, { ReactNode } from "react";
 
-import "./Pane.css";
+import "./Pane.scss";
 
 export type PaneProps = {
   vertical?: 'top' | 'center' | 'bottom';

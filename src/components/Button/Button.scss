@@ -1,8 +1,8 @@
-.mararui__button {
+.mararui__app .mararui__button {
   user-select: none;
 }
 
-.mararui__button button {
+.mararui__app .mararui__button button {
   border: none;
   background: none;
   -webkit-appearance: none;
@@ -36,7 +36,7 @@
   outline: none;
 }
 
-.mararui__button button:before {
+.mararui__app .mararui__button button:before {
   border-radius: inherit;
   background-image: linear-gradient(
     #e9e9e9 0%,
@@ -56,7 +56,7 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-.mararui__button button:hover {
+.mararui__app .mararui__button button:hover {
   box-shadow:
     0 0 8px rgba(118, 153, 160, 0.8),
     inset 0 0 2px #f1f1f1,
@@ -66,11 +66,11 @@
   border: 1px solid #888d;
 }
 
-.mararui__button button:hover:before {
+.mararui__app .mararui__button button:hover:before {
   animation: button__background__hover 0.75s infinite;
 }
 
-.mararui__button button:focus {
+.mararui__app .mararui__button button:focus {
   box-shadow: 0 0 8px rgba(118, 153, 160, 0.6);
   color: #000e;
   text-shadow: 0 0 3px #fffb;
@@ -81,11 +81,11 @@
   outline-style: solid;
 }
 
-.mararui__button button:focus:before {
+.mararui__app .mararui__button button:focus:before {
   animation: button__background__hover 0.9s infinite;
 }
 
-.mararui__button button:active {
+.mararui__app .mararui__button button:active {
   background-image: linear-gradient(
     #e9e9e9 0%,
     #bdbaba 49.4%,
@@ -108,4 +108,16 @@
   100% {
     opacity: 0;
   }
+}
+
+.mararui__app .mararui__button.mararui__button--variant-active button {
+
+}
+
+.mararui__app .mararui__button.mararui__button--variant-default button {
+
+}
+
+.mararui__app .mararui__button.mararui__button--variant-destructive button {
+
 }

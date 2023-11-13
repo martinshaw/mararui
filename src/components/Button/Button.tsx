@@ -11,10 +11,10 @@ Description: description
 
 import React, { ReactNode } from "react";
 
-import "./Button.css";
+import "./Button.scss";
 
 export type ButtonProps = {
-  variant?: "confirmation" | "default" | "destructive";
+  variant?: "active" | "default" | "destructive";
   disabled?: boolean;
   fullWidth?: boolean;
   icon?: ReactNode;

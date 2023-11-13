@@ -35,26 +35,29 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const Primary: Story = {
+export const ActiveButton: Story = {
   args: {
-    text: 'Primary',
+    variant: 'active',
+    text: 'Connect to Server',
   },
 };
 
-export const Secondary: Story = {
+export const TextButton: Story = {
   args: {
-    text: 'Secondary',
+    text: 'More Options',
   },
 };
 
-export const Large: Story = {
+export const IconAndTextButton: Story = {
   args: {
-    text: 'Large',
+    text: 'Icon and Text',
+    icon: '👍',
   },
 };
 
-export const Small: Story = {
+export const DestructiveButton: Story = {
   args: {
-    text: 'Small',
+    variant: 'destructive',
+    text: 'Delete',
   },
 };

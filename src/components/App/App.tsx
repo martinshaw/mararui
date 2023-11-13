@@ -11,7 +11,7 @@ Description: description
 
 import React, { ReactNode } from "react";
 
-import "./App.css";
+import "./App.scss";
 
 export type AppProps = {
   children: ReactNode;
