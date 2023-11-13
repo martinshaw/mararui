@@ -11,4 +11,5 @@ Description: description
 
 export { default as Button, ButtonProps } from "./Button";
 export { default as Pane, PaneProps } from "./Pane";
+export { default as ProgressBar, ProgressBarProps } from "./ProgressBar";
 export { default as App, AppProps } from "./App";
