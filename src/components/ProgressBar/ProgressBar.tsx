@@ -14,29 +14,27 @@ import React, { ReactNode } from "react";
 import "./ProgressBar.scss";
 
 export type ProgressBarProps = {
-  progress?: number;
+  value?: number;
   variant?: "active" | "default" | "destructive";
   disabled?: boolean;
-  fullWidth?: boolean;
-  icon?: ReactNode;
+  showValue?: boolean;
   text?: string;
 };
 
 type ProgressBarPropsWithDefaults = {
-  progress: number;
+  value: number;
   variant: "active" | "default" | "destructive";
   disabled: boolean;
-  fullWidth: boolean;
-  icon?: ReactNode;
+  showValue: boolean;
   text?: string;
 };
 
 const ProgressBar = (props: ProgressBarProps): ReactNode => {
   const propsWithDefaults: ProgressBarPropsWithDefaults = {
-    progress: 0,
+    value: 0,
     variant: "default",
     disabled: false,
-    fullWidth: false,
+    showValue: true,
     ...props,
   };
 
@@ -44,32 +42,52 @@ const ProgressBar = (props: ProgressBarProps): ReactNode => {
     "mararui__progress-bar",
     `mararui__progress-bar--variant-${propsWithDefaults.variant}`,
     propsWithDefaults.disabled == true ? "mararui__progress-bar--disabled" : "",
-    propsWithDefaults.fullWidth == true
-      ? "mararui__progress-bar--full-width"
-      : "",
+    propsWithDefaults.text != null ? "mararui__progress-bar--with-text" : "",
   ];
   const className = classList.join(" ");
 
   const [progressValueAsPercentage, setProgressValueAsPercentage] =
     React.useState<number>(0);
   React.useEffect(() => {
-    if (propsWithDefaults.progress >= 0.05 && propsWithDefaults.progress <= 1) {
-      setProgressValueAsPercentage(propsWithDefaults.progress * 100);
+    if (propsWithDefaults.value >= 0.05 && propsWithDefaults.value <= 1) {
+      setProgressValueAsPercentage(propsWithDefaults.value * 100);
       return;
     }
 
     setProgressValueAsPercentage(0);
-  }, [propsWithDefaults.progress]);
+  }, [propsWithDefaults.value]);
 
   return (
     <div className={className}>
-      <div
-        className="mararui__progress-bar__inner"
-        style={{
-          width: progressValueAsPercentage + "%",
-          opacity: progressValueAsPercentage === 0 ? 0 : 1,
-        }}
-      ></div>
+      <div className="mararui__progress-bar__bar">
+        <div
+          className="mararui__progress-bar__bar__inner"
+          style={{
+            width: progressValueAsPercentage + "%",
+            opacity: progressValueAsPercentage === 0 ? 0 : 1,
+          }}
+        ></div>
+      </div>
+      {propsWithDefaults.text != null ? (
+        <div className="mararui__progress-bar__caption">
+          <div className="mararui__progress-bar__caption__text">
+            {propsWithDefaults.text}
+          </div>
+          {propsWithDefaults.showValue && (
+            <div className="mararui__progress-bar__caption__value">
+              {progressValueAsPercentage}%
+            </div>
+          )}
+        </div>
+      ) : (
+        <>
+          {propsWithDefaults.showValue && (
+            <div className="mararui__progress-bar__value">
+              {progressValueAsPercentage}%
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 };

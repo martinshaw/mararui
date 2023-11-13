@@ -17,14 +17,27 @@ export type PaneProps = {
   vertical?: 'top' | 'center' | 'bottom';
   horizontal?: 'left' | 'center' | 'right';
   direction?: 'row' | 'column';
+  padding?: 'none' | 'small' | 'medium' | 'large' | 'extralarge';
+  fill?: boolean;
+  children?: ReactNode;
+}
+
+type PanePropsWithDefaults = {
+  vertical: 'top' | 'center' | 'bottom';
+  horizontal: 'left' | 'center' | 'right';
+  direction: 'row' | 'column';
+  padding: 'none' | 'small' | 'medium' | 'large' | 'extralarge';
+  fill: boolean;
   children?: ReactNode;
 }
 
 const Pane = (props: PaneProps): ReactNode => {
-  const propsWithDefaults: PaneProps = {
+  const propsWithDefaults: PanePropsWithDefaults = {
     vertical: 'center',
     horizontal: 'center',
     direction: 'row',
+    padding: 'none',
+    fill: false,
     ...props
   }
 
@@ -33,6 +46,8 @@ const Pane = (props: PaneProps): ReactNode => {
     `mararui__pane--vertical-${propsWithDefaults.vertical}`,
     `mararui__pane--horizontal-${propsWithDefaults.horizontal}`,
     `mararui__pane--direction-${propsWithDefaults.direction}`,
+    `mararui__pane--padding-${propsWithDefaults.padding}`,
+    propsWithDefaults.fill == true ? 'mararui__pane--fill' : ''
   ]
   const className = classList.join(' ');
 
