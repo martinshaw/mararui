@@ -4,6 +4,7 @@ import React from "react";
 
 import App, { AppProps } from "../App";
 import Pane, { PaneProps } from "./Pane";
+import Header, { HeaderProps } from "../Header";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof Pane> = {
@@ -103,8 +104,11 @@ export const PanesInPanesPane: Story = {
           <Pane>
             <i>Row Text 2</i>
           </Pane>
-          <Pane>
-            <i>Row Text 4</i>
+          <Pane fill direction="column">
+            <Header text="Pane Header" />
+            <Pane fill>
+              abc
+            </Pane>
           </Pane>
         </Pane>
         <Pane direction="row" fill>
@@ -125,8 +129,11 @@ export const PanesInPanesPane: Story = {
           <Pane>
             <i>Row Text 1</i>
           </Pane>
-          <Pane>
-            <i>Row Text 2</i>
+          <Pane fill direction="column">
+            <Header text="Pane Header" size="small" />
+            <Pane fill>
+              abc
+            </Pane>
           </Pane>
           <Pane>
             <i>Row Text 2</i>

@@ -1,0 +1,57 @@
+.mararui__app .mararui__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  box-shadow: inset 0 1px 0 #8883, inset 0 -1px 0 #8887, 0 1px 0 #8883, 0 -1px 0 #888a, inset 0 1px 1px #fffc;
+  background-image: linear-gradient(180deg, rgba(250, 250, 250, 0.9) 0%,/* rgba(220, 220, 220, 0.9) 42%, */ rgba(190, 190, 190, 0.9) 99.25%);
+  overflow: hidden;
+
+  & > .mararui__header__text {
+    box-sizing: border-box;
+    font-weight: 900;
+    color: #000a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  &.mararui__header--with-children {
+    justify-content: space-between;
+  }
+
+  &.mararui__header--size-small {
+    height: 20px;
+
+    & > .mararui__header__text {
+      font-size: 0.75rem;
+    }
+  }
+
+  &.mararui__header--size-medium {
+    height: 30px;
+
+    & > .mararui__header__text {
+      font-size: 0.84rem;
+    }
+  }
+
+  &.mararui__header--size-large {
+    height: 50px;
+
+    & > .mararui__header__text {
+      font-size: 0.88rem;
+    }
+  }
+
+  &.mararui__header--padding-none {
+    padding: 0;
+  }
+
+  &.mararui__header--padding-small {
+    padding: 0 10px;
+  }
+}

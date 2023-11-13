@@ -25,6 +25,7 @@
 .mararui__app .mararui__pane {
   display: flex;
   box-sizing: border-box;
+  overflow: hidden;
 
   &.mararui__pane--direction-row {
     flex-direction: row;

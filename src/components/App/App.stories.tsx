@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import App, { AppProps } from './App';
+import Header from '../Header';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof App> = {
@@ -28,6 +29,14 @@ export const EmptyApp: Story = {
   args: {
     children: (
       null
+    )
+  },
+};
+
+export const WithHeader: Story = {
+  args: {
+    children: (
+      <Header text="Header Text" size="large"/>
     )
   },
 };
