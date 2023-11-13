@@ -1,0 +1,49 @@
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ededed;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ededed;
+  }
+}
+
+.mararui__app .mararui__pane {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.mararui__app .mararui__pane.mararui__pane--direction-row {
+  flex-direction: row;
+}
+
+.mararui__app .mararui__pane.mararui__pane--direction-column {
+  flex-direction: column;
+}
+
+.mararui__app .mararui__pane.mararui__pane--vertical-top {
+  justify-content: flex-start;
+}
+
+.mararui__app .mararui__pane.mararui__pane--vertical-center {
+  justify-content: center;
+}
+
+.mararui__app .mararui__pane.mararui__pane--vertical-bottom {
+  justify-content: flex-end;
+}
+
+.mararui__app .mararui__pane.mararui__pane--horizontal-left {
+  align-items: flex-start;
+}
+
+.mararui__app .mararui__pane.mararui__pane--horizontal-center {
+  align-items: center;
+}
+
+.mararui__app .mararui__pane.mararui__pane--horizontal-right {
+  align-items: flex-end;
+}
