@@ -17,6 +17,7 @@ export type ButtonProps = {
   variant?: "active" | "default" | "destructive";
   disabled?: boolean;
   fullWidth?: boolean;
+  outline?: boolean;
   icon?: ReactNode;
   text?: string;
 };
@@ -26,14 +27,16 @@ const Button = (props: ButtonProps): ReactNode => {
     variant: "default",
     disabled: false,
     fullWidth: false,
+    outline: false,
     ...props,
   };
 
   const classList = [
     "mararui__button",
     `mararui__button--variant-${propsWithDefaults.variant}`,
-    propsWithDefaults.disabled ?? "mararui__button--disabled",
-    propsWithDefaults.fullWidth ?? "mararui__button--full-width",
+    propsWithDefaults.disabled == true ? "mararui__button--disabled" : '',
+    propsWithDefaults.fullWidth == true ? "mararui__button--full-width" : '',
+    propsWithDefaults.outline == true ? "mararui__button--outline" : '',
   ];
   const className = classList.join(" ");
 

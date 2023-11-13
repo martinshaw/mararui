@@ -6,24 +6,13 @@
   border: none;
   background: none;
   -webkit-appearance: none;
-  box-shadow:
-    0 0 3px #888a,
-    inset 0 0 3px #ddd,
-    inset 0px 1px 0px white,
-    inset 0px -1px 0px #fff7;
-  padding: 2px 22px;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 3px 22px;
   font-size: 0.95rem;
   font-weight: 500;
   border-radius: 4px;
-  border: 1px solid #888a;
-  background-image: linear-gradient(
-    #e9e9e9 0%,
-    #dadada 48.2%,
-    #d0cbcb 48.9%,
-    #efefef 100%
-  );
   -webkit-font-smoothing: antialiased;
-  color: #000c;
   transition:
     box-shadow 0.2s ease-in-out,
     color 0.3s ease-in-out,
@@ -32,18 +21,16 @@
     text-shadow 0.3s ease-in-out;
   position: relative;
   z-index: 100;
-  text-shadow: 0 0 1px #fff3;
   outline: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .mararui__app .mararui__button button:before {
   border-radius: inherit;
-  background-image: linear-gradient(
-    #e9e9e9 0%,
-    #cbcbcb 48.2%,
-    #bbbbbb 48.9%,
-    #efefef 100%
-  );
   content: "";
   display: block;
   height: 100%;
@@ -56,43 +43,8 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-.mararui__app .mararui__button button:hover {
-  box-shadow:
-    0 0 8px rgba(118, 153, 160, 0.8),
-    inset 0 0 2px #f1f1f1,
-    inset 0px 1px 0px white;
-  color: #000e;
-  text-shadow: 0 0 3px #fffb;
-  border: 1px solid #888d;
-}
-
-.mararui__app .mararui__button button:hover:before {
+.mararui__app .mararui__button:not(.mararui__button--disabled) button:hover:before {
   animation: button__background__hover 0.75s infinite;
-}
-
-.mararui__app .mararui__button button:focus {
-  box-shadow: 0 0 8px rgba(118, 153, 160, 0.6);
-  color: #000e;
-  text-shadow: 0 0 3px #fffb;
-  border: 1px solid #888f;
-  outline-color: #6ca7e688;
-  outline-offset: 2px;
-  outline-width: 3px;
-  outline-style: solid;
-}
-
-.mararui__app .mararui__button button:focus:before {
-  animation: button__background__hover 0.9s infinite;
-}
-
-.mararui__app .mararui__button button:active {
-  background-image: linear-gradient(
-    #e9e9e9 0%,
-    #bdbaba 49.4%,
-    #b5b5b5 49.9%,
-    #efefef 100%
-  );
-  border: 1px solid #888f;
 }
 
 @keyframes button__background__hover {
@@ -110,14 +62,180 @@
   }
 }
 
-.mararui__app .mararui__button.mararui__button--variant-active button {
-
+.mararui__app .mararui__button.mararui__button--full-width {
+  &, & > button {
+    width: 100%;
+  }
 }
 
-.mararui__app .mararui__button.mararui__button--variant-default button {
-
+.mararui__app .mararui__button.mararui__button--outline {
+  & > button:focus {
+    box-shadow: 0 0 8px rgba(118, 153, 160, 0.6);
+    color: #000e;
+    text-shadow: 0 0 3px #fffb;
+    border: 1px solid #888f;
+    outline-color: #6ca7e688;
+    outline-offset: 2px;
+    outline-width: 3px;
+    outline-style: solid;
+  }
+  
+  & > button:focus:before {
+    animation: button__background__hover 0.9s infinite;
+  }
 }
 
-.mararui__app .mararui__button.mararui__button--variant-destructive button {
+.mararui__app .mararui__button.mararui__button--disabled {
+  filter: blur(0.4px);
+  opacity: .5;
+}
 
+.mararui__app .mararui__button.mararui__button--variant-active {
+  & > button {
+    box-shadow:
+      0 0 3px #888a,
+      inset 0 0 3px #81b4ee,
+      inset 0px 1px 0px white,
+      inset 0px -1px 0px #fff7;
+    border: 1px solid #888a;
+    background-image: linear-gradient(
+      #bed4f0 0%,
+      #81b4ee 49.4%,
+      #70adee 49.9%,
+      #c5e2f2 100%
+    );
+    text-shadow: 0 0 1px #fff3;
+    color: rgba(0, 29, 62, 0.95);
+  }
+
+  & > button:before {
+    background-image: linear-gradient(
+      #bed4f0 0%,
+      #73adf0 48.2%,
+      #6a9dd3 48.9%,
+      #c5e2f2 100%
+    );
+  }
+
+  &:not(.mararui__button--disabled) {
+    & > button:hover {
+      box-shadow:
+        0 0 8px rgba(118, 153, 160, 0.8),
+        inset 0 0 2px #81b4ee,
+        inset 0px 1px 0px white;
+      color: #000e;
+      text-shadow: 0 0 3px #fffb;
+      border: 1px solid #888d;
+    }
+
+    & > button:active {
+      background-image: linear-gradient(
+        #bed4f0 0%,
+        #a8c9ee 49.4%,
+        #97bee8 49.9%,
+        #c5e2f2 100%
+      );
+      border: 1px solid #888f;
+    }
+  }
+}
+
+.mararui__app .mararui__button.mararui__button--variant-default {
+  & > button {
+    box-shadow:
+      0 0 3px #888a,
+      inset 0 0 3px #ddd,
+      inset 0px 1px 0px white,
+      inset 0px -1px 0px #fff7;
+    border: 1px solid #888a;
+    background-image: linear-gradient(
+      #e9e9e9 0%,
+      #dadada 48.2%,
+      #d0cbcb 48.9%,
+      #efefef 100%
+    );
+    text-shadow: 0 0 1px #fff3;
+    color: rgba(43, 48, 49, 0.95);
+  }
+
+  & > button:before {
+    background-image: linear-gradient(
+      #e9e9e9 0%,
+      #cbcbcb 48.2%,
+      #bbbbbb 48.9%,
+      #efefef 100%
+    );
+  }
+
+  &:not(.mararui__button--disabled) {
+    & > button:hover {
+      box-shadow:
+        0 0 8px rgba(118, 153, 160, 0.8),
+        inset 0 0 2px #f1f1f1,
+        inset 0px 1px 0px white;
+      border: 1px solid #888d;
+      color: #000e;
+      text-shadow: 0 0 3px #fffb;
+    }
+
+    & > button:active {
+      background-image: linear-gradient(
+        #e9e9e9 0%,
+        #bdbaba 49.4%,
+        #b5b5b5 49.9%,
+        #efefef 100%
+      );
+      border: 1px solid #888f;
+    }
+  }
+}
+
+.mararui__app .mararui__button.mararui__button--variant-destructive {
+  & > button {
+    box-shadow:
+      0 0 3px #888a,
+      inset 0 0 3px #ee8181,
+      inset 0px 1px 0px white,
+      inset 0px -1px 0px #fff7;
+    border: 1px solid #888a;
+    background-image: linear-gradient(
+      #f0bebe 0%,
+      #ee8181 49.4%,
+      #ee7070 49.9%,
+      #f2c5c5 100%
+    );
+    text-shadow: 0 0 1px #fff3;
+    color: rgba(85, 0, 0, 0.95);
+  }
+
+  & > button:before {
+    background-image: linear-gradient(
+      #f0bebe 0%,
+      #f07373 48.2%,
+      #d36a6a 48.9%,
+      #f2c5c5 100%
+    );
+  }
+
+  &:not(.mararui__button--disabled) {
+    & > button:hover {
+      box-shadow:
+        0 0 8px rgba(160, 118, 118, 0.8),
+        inset 0 0 2px #ee8181,
+        inset 0px 1px 0px white;
+      color: #000e;
+      text-shadow: 0 0 3px #fffb;
+      border: 1px solid #888d;
+    }
+
+    & > button:active {
+      background-image: linear-gradient(
+        #f0bebe 0%,
+        #eea8a8 49.4%,
+        #e89797 49.9%,
+        #f2c5c5 100%
+      );
+      border: 1px solid #888f;
+    }
+  }
 }
